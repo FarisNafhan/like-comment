@@ -13,14 +13,20 @@
         <p>{{ $foto->deskripsi }}</p>
     </div>
     <div class="komentar">
-        komentar
-
         <div>
-            <form action="" method="post">
+            <form action="{{ route('komentar.store', $foto->id) }}" method="POST">
                 @csrf
-                
-                <textarea name="komentar" placeholder="tambahkan komentar" cols="50"></textarea>
+                <input type="hidden" name="foto_id" value="{{ $foto->id }}">
+                <textarea name="isi" placeholder="Tambahkan komentar" cols="50" required></textarea>
+                <button type="submit">Kirim</button>
             </form>
+
+
+            <h3>komentar:</h3>
+            @foreach ($foto->komentar as $komentar)
+                <p><strong>{{ $komentar->user->username }}</strong>{{ $komentar->tanggal }}</p>
+                <p>{{ $komentar->isi }}</p>
+            @endforeach
         </div>
     </div>
 </div>

@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Album;
 use App\Models\Foto;
+use App\Models\User;
+use App\Models\Album;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class GaleryController extends Controller
 {
     public function MyGalery()
     {
-        $fotos = foto::all();
+        $user_id = auth()->id();
+        $fotos = foto::where('user_id', $user_id)->get();
         return view('galery.MyGalery', compact('fotos'));
     }
 

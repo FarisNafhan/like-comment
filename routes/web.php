@@ -9,7 +9,10 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RegisterController;
 
 Route::get('/', [PublicController::class, 'landing'])->name('landing');
+
 Route::get('/foto/{id}', [PublicController::class, 'detailFoto'])->name('detail-foto');
+Route::post('/foto/komentar', [KomenController::class, 'komentar'])->name('komentar.store');
+
 Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -28,5 +31,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/my-galery-new', [GaleryController::class, 'NewGalery'])->name('NewGalery');
     Route::post('/my-galery-new-add', [GaleryController::class, 'AddGalery'])->name('AddGalery');
 
-    Route::post('/komentar', [KomenController::class, 'komentar'])->name('komentar');
+    Route::post('/komentar-add', [KomenController::class, 'komentar'])->name('komentar');
 });

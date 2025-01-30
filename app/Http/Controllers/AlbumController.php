@@ -12,7 +12,9 @@ class AlbumController extends Controller
 {
     public function album()
     {
-        return view('galery.album');
+        $users = auth()->id();
+        $albums = Album::where('user_id', $users)->get();
+        return view('galery.album', compact('albums'));
     }
 
     public function NewAlbum()

@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+<<<<<<< HEAD
 use App\Http\Controllers\LikeController;
+=======
+>>>>>>> 21fed020a1d1a480896a1f9c099ffbbf0eb48d14
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\KomenController;
 use App\Http\Controllers\GaleryController;
@@ -31,8 +34,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/my-galery', [GaleryController::class, 'MyGalery'])->name('MyGalery');
     Route::get('/my-galery-new', [GaleryController::class, 'NewGalery'])->name('NewGalery');
     Route::post('/my-galery-new-add', [GaleryController::class, 'AddGalery'])->name('AddGalery');
+<<<<<<< HEAD
     Route::get('/download/{id}', [GaleryController::class, 'downloadFoto'])->name('downloadFoto');
 
     Route::post('/komentar-add', [KomenController::class, 'komentar'])->name('komentar');
     Route::post('/like/{foto_id}', [LikeController::class, 'like'])->name('like');
+=======
+
+    Route::post('/komentar-add', [KomenController::class, 'komentar'])->name('komentar');
+>>>>>>> 21fed020a1d1a480896a1f9c099ffbbf0eb48d14
 });

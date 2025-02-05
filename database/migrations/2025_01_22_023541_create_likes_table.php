@@ -17,7 +17,11 @@ return new class extends Migration
             $table->foreign('foto_id')->references('id')->on('fotos')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+<<<<<<< HEAD
             $table->date('tanggal');
+=======
+            $table->date('Tanggal');
+>>>>>>> 21fed020a1d1a480896a1f9c099ffbbf0eb48d14
             $table->timestamps();
         });
     }

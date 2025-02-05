@@ -20,6 +20,7 @@ class GaleryController extends Controller
 
     public function NewGalery()
     {
+<<<<<<< HEAD
         $user_id = auth()->id();
         $albums = Album::where('user_id', $user_id)->get();
         return view('galery.NewGalery', compact('albums'));
@@ -38,6 +39,12 @@ class GaleryController extends Controller
         }
     }
 
+=======
+        $albums = Album::all();
+        return view('galery.NewGalery', compact('albums'));
+    }
+
+>>>>>>> 21fed020a1d1a480896a1f9c099ffbbf0eb48d14
     public function AddGalery(Request $request)
     {
         Log::info('Data dari form yang dikirim:', $request->all());
@@ -45,7 +52,11 @@ class GaleryController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:255',
+<<<<<<< HEAD
             'lokasifile' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+=======
+            'lokasifile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+>>>>>>> 21fed020a1d1a480896a1f9c099ffbbf0eb48d14
             'album_id' => 'required|exists:albums,id',
         ]);
 

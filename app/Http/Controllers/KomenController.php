@@ -19,8 +19,11 @@ class KomenController extends Controller
             'isi' => 'required|string|max:255',
         ]);
 
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> 21fed020a1d1a480896a1f9c099ffbbf0eb48d14
         komen::create([
             'foto_id' => $request->foto_id,
             'user_id' => auth()->id(),

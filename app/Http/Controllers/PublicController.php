@@ -16,7 +16,11 @@ class PublicController extends Controller
 
     public function home()
     {
+<<<<<<< HEAD
         $fotos = foto::inRandomOrder()->get();
+=======
+        $fotos = foto::all();
+>>>>>>> 21fed020a1d1a480896a1f9c099ffbbf0eb48d14
         return view('galery.home' ,compact('fotos'));
     }
     public function detailFoto($id)
